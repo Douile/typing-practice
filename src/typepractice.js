@@ -99,10 +99,16 @@ window.addEventListener('load', async function() {
   await load();
   document.querySelector('.typerace-input').focus();
 });
-window.addEventListener('keydown', (e) => {
-  if (e.target.tagName !== 'INPUT' || !e.target.classList.contains('typerace-input')) return;
+function keyboardInput(key, target) {
+  if (target.tagName !== 'INPUT' || !target.classList.contains('typerace-input')) return;
   if (_active === null) _active = new Race();
-  _active.input(e.key, () => {e.target.value=''});
+  _active.input(key.substr(-1), () => {target.value=''});
+}
+window.addEventListener('keydown', (e) => {
+  keyboardInput(e.key, e.target);
+});
+window.addEventListener('compositionupdate', (e) => {
+  keyboardInput(e.data, e.target);
 });
 window.addEventListener('click', (e) => {
   if (e.target.tagName !== 'A') return;

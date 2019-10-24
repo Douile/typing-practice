@@ -1,4 +1,4 @@
-const API = 'http://www.randomtext.me/api/gibberish/p-1/35-100';
+const API = 'https://www.randomtext.me/api/gibberish/p-1/35-100';
 
 class Race {
   constructor() {

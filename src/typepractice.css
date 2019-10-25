@@ -11,13 +11,13 @@
   padding: 10px;
 }
 .typerace-text {
-  max-width: 50vmax;
+  max-width: var(--x-width);
 }
 .typerace-input {
   padding: 6px;
   border-radius: 5px;
   border: 1px solid #000;
-  width: 50vmax;
+  width: var(--x-width);
   margin: 10px;
 }
 .typerace-text .active {
@@ -27,13 +27,13 @@
   transition: none;
 }
 .typerace-stats {
-  width: 50vmax;
+  width: var(--x-width);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 .typerace-controls {
-  width: 50vmax;
+  width: var(--x-width);
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -50,6 +50,17 @@ a {
   padding: 5px;
 }
 * {
+  --x-width: 50vmax;
   box-sizing: border-box;
   transition: 1s ease all;
+}
+@media (max-width:900px) {
+  * {
+    --x-width: 70vw;
+  }
+}
+@media (max-width:600px) {
+  * {
+    --x-width: 90vw;
+  }
 }
